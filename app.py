@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from jobspy import scrape_jobs
 
@@ -23,7 +24,7 @@ def get_jobs():
         location=location,
         results_wanted=results_wanted,
         hours_old=hours_old,
-        linkedin_fetch_description=linkedin_fetch_description  # Add this parameter
+        linkedin_fetch_description=linkedin_fetch_description
     )
     
     # Convert jobs to a list of dictionaries for easy JSON response
@@ -37,4 +38,6 @@ def get_jobs():
     return jsonify(jobs_list)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Get the port from environment variable or set to default 5000
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
