@@ -10,7 +10,7 @@ def get_jobs():
     # Get parameters from the request URL
     site_name = request.args.get('site_name', 'linkedin','glassdoor')
     search_term = request.args.get('search_term', 'software engineer')
-    location = request.args.get('location', 'New York, NY')
+    location = request.args.get('location', 'India, IN')
     results_wanted = int(request.args.get('results_wanted', 20))
     hours_old = int(request.args.get('hours_old', 72))
     
