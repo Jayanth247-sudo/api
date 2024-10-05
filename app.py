@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/scrape-jobs', methods=['GET'])
 def get_jobs():
     # Get parameters from the request URL
-    site_name = request.args.get('site_name', 'linkedin')
+    site_name = request.args.get('site_name', 'Glassdoor')
     search_term = request.args.get('search_term', 'software engineer')
     location = request.args.get('location', 'India, IN')
     results_wanted = int(request.args.get('results_wanted', 20))
